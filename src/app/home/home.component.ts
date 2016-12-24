@@ -1,10 +1,9 @@
 ﻿import { Component, OnInit } from '@angular/core';
 
-import { User } from '../_models/index';
-import { UserService } from '../_services/index';
+import { User } from '../models/index';
+import { UserService } from '../services/index';
 
 @Component({
-    moduleId: module.id,
     templateUrl: 'home.component.html'
 })
 
