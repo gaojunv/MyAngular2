@@ -7,7 +7,7 @@ export class HomeComponent implements OnInit {
    token:string;
 
     constructor() {
-        this.token = JSON.parse(localStorage.getItem('token'));
+        this.token = localStorage.getItem('token');
     }
 
     ngOnInit() {
