@@ -4,8 +4,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AlertService, AuthenticationService } from '../services/index';
 
 @Component({
-  templateUrl: 'login.component.html',
-  styleUrls:['login.component.css']
+  templateUrl: './login.component.html',
+  styleUrls:['./login.component.css']
 
 })
 
