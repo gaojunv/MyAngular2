@@ -5,8 +5,8 @@ import { AlertService, AuthenticationService } from '../services';
 import {AuthHttp} from  'angular2-jwt';
 
 @Component({
-  templateUrl: 'login.component.html',
-  styleUrls:['login.component.css']
+  templateUrl: './login.component.html',
+  styleUrls:['./login.component.css']
 
 })
 
@@ -27,14 +27,14 @@ export class LoginComponent implements OnInit {
         this.authenticationService.logout();
 
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-        this.authHttp.get('https://www.baidu.com')
+        /*this.authHttp.get('https://www.baidu.com')
           .subscribe(
             data => {this.thing = data;
               console.log(data);
             },
             err => console.log(err),
             () => console.log('Request Complete')
-          );
+          );*/
     }
 
     login() {
