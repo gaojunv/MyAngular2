@@ -5,8 +5,8 @@ import { AlertService, AuthenticationService } from '../services';
 import {AuthHttp} from  'angular2-jwt';
 
 @Component({
-  templateUrl: './login.component.html',
-  styleUrls:['./login.component.css']
+  templateUrl: 'login.component.html',
+  styleUrls:['login.component.css']
 
 })
 
