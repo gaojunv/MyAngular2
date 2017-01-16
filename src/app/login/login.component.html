@@ -3,13 +3,11 @@
   <div class="ui-g">
     <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
       <div class="ui-g-12" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-        <label for="username">用户</label>
-        <input type="text" name="username" pInputText  [(ngModel)]="model.username" #username="ngModel" required />
+        <input type="text" name="username" pInputText  [(ngModel)]="model.username" #username="ngModel" required placeholder="账号"/>
         <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
       </div>
       <div class="ui-g-12" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-        <label for="password">密码</label>
-        <input type="password"  name="password" pInputText [(ngModel)]="model.password" #password="ngModel" required />
+        <input type="password"  name="password" pInputText [(ngModel)]="model.password" #password="ngModel" required placeholder="密码"/>
         <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
       </div>
       <div class="ui-g-12">
