@@ -3,7 +3,7 @@
   <div class="ui-g">
     <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
       <div class="ui-g-12" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-        <input type="text" name="username" pInputText  [(ngModel)]="model.username" #username="ngModel" required placeholder="账号"/>
+        <input type="text" name="username" pInputText  [(ngModel)]="model.username" #username="ngModel" required placeholder="账户"/>
         <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
       </div>
       <div class="ui-g-12" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
