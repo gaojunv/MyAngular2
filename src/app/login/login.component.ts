@@ -2,7 +2,6 @@
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { AlertService, AuthenticationService } from '../services';
-import {AuthHttp} from  'angular2-jwt';
 
 @Component({
   templateUrl: './login.component.html',
@@ -20,21 +19,11 @@ export class LoginComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private authenticationService: AuthenticationService,
-        private alertService: AlertService,
-        private  authHttp: AuthHttp) { }
+        private alertService: AlertService) { }
 
     ngOnInit() {
         this.authenticationService.logout();
-
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-        /*this.authHttp.get('https://www.baidu.com')
-          .subscribe(
-            data => {this.thing = data;
-              console.log(data);
-            },
-            err => console.log(err),
-            () => console.log('Request Complete')
-          );*/
     }
 
     login() {

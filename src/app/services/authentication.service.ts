@@ -11,14 +11,19 @@ export class AuthenticationService {
     login(username: string, password: string) {
         return this.athHttp.post('http://127.0.0.1:8080/auth', JSON.stringify({ username: username, password: password }))
             .map((response: Response) => {
-                let token = response.json();
+                let token = response.json().token;
                 if (token) {
-                    localStorage.setItem('token', JSON.stringify(token));
+                    localStorage.setItem('token', token);
                 }
             });
     }
 
     logout() {
         localStorage.removeItem('token');
+    }
+
+    getUserList():Observable<any[]>{
+        return this.athHttp.get('http://127.0.0.1:8080/api/user')
+        .map((response: Response) =>  response.json() as any[]);
     }
 }

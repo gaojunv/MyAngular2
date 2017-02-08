@@ -13,9 +13,11 @@ import {AuthHttp,AuthConfig }from 'angular2-jwt';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
-    tokenName: 'token',
-    tokenGetter: (() => sessionStorage.getItem('token')),
-    globalHeaders: [{'Content-Type':'application/json'}],
+    headerName: 'token',
+    noTokenScheme:true,
+    tokenGetter: (() => localStorage.getItem('token')),
+    globalHeaders: [{'Content-Type':'application/json','Access-Control-Allow-Origin' : '*'}],
+    noJwtError:true
   }), http, options);
 }
 
