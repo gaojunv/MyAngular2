@@ -11,6 +11,8 @@ import {AlertService, AuthenticationService} from './services';
 import {InputTextModule, ButtonModule} from 'primeng/primeng';
 import {AuthHttp,AuthConfig }from 'angular2-jwt';
 
+import {KeysPipe} from './pipe';
+
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
     headerName: 'token',
@@ -34,7 +36,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   declarations: [
     AppComponent,
     AlertComponent,
-    RoutedComponents
+    RoutedComponents,
+    KeysPipe
   ],
   providers: [
     RoutedService,

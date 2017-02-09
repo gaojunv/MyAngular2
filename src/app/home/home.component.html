@@ -1,4 +1,15 @@
 ﻿<div>
     <h1>{{token}}</h1>
-    <div *ngFor="let user of users | async">{{user.firstname}}</div>
+    <table><thead>
+            <tr *ngFor="let user of users | async;let i = index">
+            <th *ngFor="let key of user | keys">{{key}}</th>
+          </tr>
+    </thead>
+        <tbody>
+            <tr *ngFor="let user of users | async">
+            <td *ngFor="let key of user | keys">{{user[key]}}</td>
+          </tr>
+          </tbody>
+          
+        </table>
 </div>

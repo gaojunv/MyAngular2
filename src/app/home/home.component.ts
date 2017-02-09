@@ -2,7 +2,7 @@
 import { AuthenticationService } from '../services';
 import { Observable } from 'rxjs/Observable';
 @Component({
-    templateUrl: './home.component.html'
+    templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit {
    token:string;
