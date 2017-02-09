@@ -15,10 +15,10 @@ export class HomeComponent implements OnInit {
     ngOnInit() {
         this.authenticationService.getUserList().then(users => this.users = users);
         this.cols = [
-            {field: 'username', header: '用户名'},
-            {field: 'email', header: '邮箱'},
-            {field: 'firstname', header: '姓氏'},
-            {field: 'lastname', header: '名字'}
+            {field: 'username', header: '用户名', sortable: 'true'},
+            {field: 'email', header: '邮箱', sortable: 'true'},
+            {field: 'firstname', header: '姓氏', sortable: 'true'},
+            {field: 'lastname', header: '名字', sortable: 'true'}
         ];
     }
 }
