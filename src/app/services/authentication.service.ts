@@ -1,6 +1,7 @@
 ﻿import { Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/toPromise'
 import 'rxjs/add/operator/map'
 import {AuthHttp }from 'angular2-jwt';
 
@@ -22,8 +23,9 @@ export class AuthenticationService {
         localStorage.removeItem('token');
     }
 
-    getUserList():Observable<any[]>{
+    getUserList(){
         return this.athHttp.get('http://127.0.0.1:8080/api/user')
-        .map((response: Response) =>  response.json() as any[]);
+        .toPromise()
+        .then((response: Response) =>  response.json() as any[]);
     }
 }

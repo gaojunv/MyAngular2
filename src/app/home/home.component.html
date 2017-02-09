@@ -1,15 +1,6 @@
 ﻿<div>
-    <h1>{{token}}</h1>
-    <table><thead>
-            <tr *ngFor="let user of users | async;let i = index">
-            <th *ngFor="let key of user | keys">{{key}}</th>
-          </tr>
-    </thead>
-        <tbody>
-            <tr *ngFor="let user of users | async">
-            <td *ngFor="let key of user | keys">{{user[key]}}</td>
-          </tr>
-          </tbody>
-          
-        </table>
+  <h3>用户信息</h3>
+  <p-dataTable [value]="users">
+      <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header"></p-column>
+  </p-dataTable>
 </div>

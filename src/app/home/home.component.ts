@@ -6,13 +6,19 @@ import { Observable } from 'rxjs/Observable';
 })
 export class HomeComponent implements OnInit {
    token:string;
-   users:Observable< any[]>;
+   users:any[];
+   cols: any[];
     constructor(private authenticationService: AuthenticationService) {
         this.token = localStorage.getItem('token');
     }
 
     ngOnInit() {
-        this.users =  this.authenticationService.getUserList();
-        console.log(this.users);
+        this.authenticationService.getUserList().then(users => this.users = users);
+        this.cols = [
+            {field: 'username', header: '用户名'},
+            {field: 'email', header: '邮箱'},
+            {field: 'firstname', header: '姓氏'},
+            {field: 'lastname', header: '名字'}
+        ];
     }
 }
