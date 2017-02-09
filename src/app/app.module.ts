@@ -7,7 +7,7 @@ import {AppComponent}  from './app.component';
 import {Routing, RoutedComponents,RoutedService}        from './app.routing';
 
 import {AlertComponent} from './directives';
-import {AlertService, AuthenticationService} from './services';
+import {AlertService, AuthenticationService, UserService} from './services';
 import {InputTextModule, ButtonModule,DataTableModule,SharedModule} from 'primeng/primeng';
 import {AuthHttp,AuthConfig }from 'angular2-jwt';
 
@@ -45,6 +45,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     RoutedService,
     AlertService,
     AuthenticationService,
+    UserService,
     {
       provide: AuthHttp,
       useFactory: authHttpServiceFactory,
