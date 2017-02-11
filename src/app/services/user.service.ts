@@ -6,11 +6,11 @@ import { AppConfig } from '../app.config';
 
 @Injectable()
 export class UserService {
-    url: string
+    url: string;
     constructor(private athHttp: AuthHttp, @Inject(AppConfig) config: AppConfig) {
         this.url = config.restUrl;
     }
-    private handleError(error: any): Promise<any> {
+    private static handleError(error: any): Promise<any> {
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);
     }
@@ -19,6 +19,6 @@ export class UserService {
         return this.athHttp.get(`${this.url}/api/user`)
             .toPromise()
             .then((response: Response) => response.json() as any[])
-            .catch(this.handleError);;
+            .catch(UserService.handleError);
     }
 }

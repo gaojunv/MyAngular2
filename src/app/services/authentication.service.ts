@@ -7,14 +7,11 @@ import {AppConfig} from '../app.config';
 
 @Injectable()
 export class AuthenticationService {
-    url:string
+    url:string;
     constructor(private athHttp: AuthHttp,@Inject(AppConfig) config:AppConfig) { 
         this.url = config.restUrl;
     }
-    private handleError(error: any): Promise<any> {
-        console.error('An error occurred', error);
-        return Promise.reject(error.message || error);
-    }
+
     login(username: string, password: string) {
         return this.athHttp.post(`${this.url}/auth`, JSON.stringify({ username: username, password: password }))
             .map((response: Response) => {
@@ -25,7 +22,7 @@ export class AuthenticationService {
             });
     }
 
-    logout() {
+    static logout() {
         localStorage.removeItem('token');
     }
 }
