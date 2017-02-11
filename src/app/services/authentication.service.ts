@@ -1,14 +1,14 @@
 ﻿import { Injectable,Inject } from '@angular/core';
 import { Response } from '@angular/http';
-import 'rxjs/add/operator/toPromise'
-import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/map';
 import {AuthHttp }from 'angular2-jwt';
 import {AppConfig} from '../app.config';
 
 @Injectable()
 export class AuthenticationService {
     url:string;
-    constructor(private athHttp: AuthHttp,@Inject(AppConfig) config:AppConfig) { 
+    constructor(private athHttp: AuthHttp,@Inject(AppConfig) config:AppConfig) {
         this.url = config.restUrl;
     }
 
