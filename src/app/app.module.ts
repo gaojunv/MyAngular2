@@ -11,7 +11,7 @@ import { AlertComponent } from './directives';
 import { AlertService, AuthenticationService, UserService } from './services';
 import { environment } from '../environments/environment';
 
-import { InputTextModule, ButtonModule, DataTableModule, SharedModule } from 'primeng/primeng';
+import { InputTextModule, ButtonModule } from 'primeng/primeng';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 
 import { KeysPipe } from './pipe';
@@ -35,8 +35,6 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     Routing,
     InputTextModule,
     ButtonModule,
-    DataTableModule,
-    SharedModule
   ],
   declarations: [
     AppComponent,
