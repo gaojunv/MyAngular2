@@ -1,7 +1,7 @@
 ﻿<div>
   <p-dataTable [value]="users" [rows]="10" [editable]="true" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]" resizableColumns="true" reorderableColumns="true">
       <header>用户信息</header>
-      <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header" [sortable]="col.sortable" [editable]="true"></p-column>
+      <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header" [sortable]="col.sortable" [editable]="col.editable"></p-column>
   </p-dataTable>
   <button pButton label="提示" (click)="showUsers()"></button>
   <button pButton label="重置" (click)="resetUsers()"></button>
