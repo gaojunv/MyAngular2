@@ -5,7 +5,8 @@ import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class AlertService {
-    private subject = new Subject<any>();
+    private subject = new Subject<any[]>();
+    private messages = [];
     private keepAfterNavigationChange = false;
 
     constructor(private router: Router) {
@@ -20,14 +21,16 @@ export class AlertService {
         });
     }
 
-    success(message: string, keepAfterNavigationChange = false) {
+    success(title:string, message: string, keepAfterNavigationChange = false) {
         this.keepAfterNavigationChange = keepAfterNavigationChange;
-        this.subject.next({ type: 'success', text: message });
+        this.messages.push({severity:'success', summary:title, detail:message});
+        this.subject.next(this.messages);
     }
 
-    error(message: string, keepAfterNavigationChange = false) {
+    error(title:string, message: string, keepAfterNavigationChange = false) {
         this.keepAfterNavigationChange = keepAfterNavigationChange;
-        this.subject.next({ type: 'error', text: message });
+        this.messages.push({severity:'error', summary:title, detail:message});
+        this.subject.next(this.messages);
     }
 
     getMessage(): Observable<any> {

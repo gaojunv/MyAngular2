@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
                     console.log(data);
                 },
                 error => {
-                    this.alertService.error(error);
+                    this.alertService.error('登录失败',error.message);
                     this.loading = false;
                 });
     }
